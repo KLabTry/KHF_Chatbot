@@ -16,6 +16,7 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - greetings
 
 - intent: thanks
   examples: |
@@ -220,3 +221,16 @@ nlu:
     - Marketing
     - Non-Profit
     - Pharmaceuticals
+
+- intent: bot_capabilities
+  examples: |
+    - What can you do?
+    - Tell me about your features.
+    - What are your capabilities?
+    - In what ways can you help me?
+    - Describe your services.
+    - What assistance are you able to offer?
+    - Explain what you can perform.
+    - How are you able to support me?
+    - What tasks can you handle?
+    - What are the things you can help with?

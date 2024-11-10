@@ -46,3 +46,8 @@ rules:
   steps:
     - intent: thanks
     - action: utter_thanks
+
+- rule: Respond to bot capabilities inquiry
+  steps:
+    - intent: bot_capabilities
+    - action: utter_bot_capabilities

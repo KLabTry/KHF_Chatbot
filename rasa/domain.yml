@@ -7,6 +7,7 @@ intents:
   - currency_exchange
   - provide_name
   - thanks
+  - bot_capabilities
 
 entities:
   - job_title
@@ -83,6 +84,10 @@ responses:
   
   utter_thanks:
     - text: "You're welcome! If you have any other questions, feel free to ask."
+
+  utter_bot_capabilities:
+    - text: "I can assist you with job searches and help you exchange euros to other currencies."
+
 
 
 session_config:
