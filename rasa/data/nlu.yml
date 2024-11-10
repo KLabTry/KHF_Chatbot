@@ -1,0 +1,222 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: thanks
+  examples: |
+    - thanks
+    - thank you
+    - much appreciated
+    - thanks a lot
+    - cool
+    - awesome
+    - great
+    - sounds good
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: ask_job
+  examples: |
+    - I'm looking for a [software engineer](job_title) position in the [tech](industry) industry.
+    - Do you have any openings for a [marketing manager](job_title) in [advertising](industry)?
+    - Can you help me find a [data analyst](job_title) role within [finance](industry)?
+    - Are there any [graphic designer](job_title) jobs available in the [media](industry) sector?
+    - I'm interested in [project manager](job_title) positions in the [construction](industry) field.
+    - Could you assist me in finding a [nurse](job_title) job in the [healthcare](industry) industry?
+    - I'm seeking a [sales executive](job_title) role in the [retail](industry) sector.
+    - Do you know of any [teacher](job_title) vacancies in the [education](industry) field?
+    - I'm searching for a [mechanical engineer](job_title) position in the [automotive](industry) industry.
+    - Can you find me a [chef](job_title) job in the [hospitality](industry) sector?
+    - I'm looking for [customer service](job_title) roles in the [telecommunications](industry) industry.
+    - Are there any [accountant](job_title) positions open in the [banking](industry) sector?
+    - I'm interested in [human resources](job_title) jobs within the [corporate](industry) environment.
+    - Can you help me locate a [content writer](job_title) role in the [publishing](industry) industry?
+    - I'm seeking [business analyst](job_title) positions in the [consulting](industry) field.
+
+- intent: currency_exchange
+  examples: |
+    - I want to exchange [100](amount) EUR to [USD](target_currency)
+    - Convert [50](amount) EUR to [JPY](target_currency)
+    - How much is [200](amount) EUR in [CAD](target_currency)?
+    - Exchange [75](amount) EUR to [GBP](target_currency)
+    - What's the equivalent of [150](amount) EUR in [INR](target_currency)?
+    - Can you convert [2000](amount) EUR to [CNY](target_currency)?
+    - I'd like to change [500](amount) EUR to [NZD](target_currency)
+    - How many [USD](target_currency) will I get for [300](amount) EUR?
+    - Please convert [1000](amount) EUR to [GBP](target_currency)
+    - What's [50](amount) EUR in [MYR](target_currency)?
+    - How much is [100](amount) EUR in [AUD](target_currency)?
+    - Convert [200](amount) EUR to [USD](target_currency)
+    - Exchange [300](amount) EUR to [JPY](target_currency)
+    - I'd like to convert [400](amount) EUR to [CAD](target_currency)
+    - How many [USD](target_currency) can I get for [500](amount) EUR?
+    - What's the exchange rate from EUR to [GBP](target_currency) for [600](amount)?
+    - Can you change [700](amount) EUR to [GBP](target_currency)?
+    - I'd like to know how much [800](amount) EUR is in [AUD](target_currency)
+    - Please convert [900](amount) EUR to [USD](target_currency)
+    - How much is [1000](amount) EUR in [SGD](target_currency)?
+
+- regex: amount
+  examples: |
+    - \b\d+(\.\d{1,2})?\b
+
+- lookup: target_currency
+  examples: |
+    - USD
+    - United States Dollar
+    - EUR
+    - Euro
+    - GBP
+    - British Pound
+    - JPY
+    - Japanese Yen
+    - AUD
+    - Australian Dollar
+    - CAD
+    - Canadian Dollar
+    - CHF
+    - Swiss Franc
+    - CNY
+    - Chinese Yuan
+    - SEK
+    - Swedish Krona
+    - NZD
+    - New Zealand Dollar
+    - MXN
+    - Mexican Peso
+    - SGD
+    - Singapore Dollar
+    - HKD
+    - Hong Kong Dollar
+    - NOK
+    - Norwegian Krone
+    - KRW
+    - South Korean Won
+    - TRY
+    - Turkish Lira
+    - INR
+    - Indian Rupee
+    - RUB
+    - Russian Ruble
+    - BRL
+    - Brazilian Real
+    - ZAR
+    - South African Rand
+    - DKK
+    - Danish Krone
+    - PLN
+    - Polish Zloty
+    - THB
+    - Thai Baht
+    - IDR
+    - Indonesian Rupiah
+    - HUF
+    - Hungarian Forint
+    - CZK
+    - Czech Koruna
+    - ILS
+    - Israeli New Shekel
+    - CLP
+    - Chilean Peso
+    - PHP
+    - Philippine Peso
+    - AED
+    - United Arab Emirates Dirham
+    - COP
+    - Colombian Peso
+    - SAR
+    - Saudi Riyal
+    - MYR
+    - Malaysian Ringgit
+    - RON
+    - Romanian Leu
+    - KWD
+    - Kuwaiti Dinar
+
+  
+- intent: provide_name
+  examples: |
+    - My user_name is [Khaled Badran](user_name)
+    - I'm [Khaled](user_name)
+    - You can call me [Abdulrahman Alammar](user_name)
+    - It's [Abdulrahman](user_name)
+    - I am [Aseel alorbani](user_name)
+    - This is [Aseel](user_name)
+    - [Chris](user_name) here
+    - [Olivia](user_name)
+    - [Liam](user_name) speaking
+    - They call me [Sophia](user_name)
+
+- lookup: job_title
+  examples: |
+    - Software Developer
+    - Data Scientist
+    - Project Manager
+    - Business Analyst
+    - Marketing Specialist
+    - Sales Representative
+    - Graphic Designer
+    - Financial Analyst
+    - Human Resources Manager
+    - Customer Service Representative
+    - Network Engineer
+    - Product Manager
+    - Quality Assurance Tester
+    - Content Writer
+    - Operations Manager
+    - Account Executive
+    - UX/UI Designer
+    - Database Administrator
+    - System Administrator
+    - Mobile App Developer
+    - Web Developer
+    - Developer
+
+- lookup: industry
+  examples: |
+    - Banking
+    - Consulting
+    - Information Technology
+    - Healthcare
+    - Education
+    - Manufacturing
+    - Retail
+    - Telecommunications
+    - Finance
+    - Real Estate
+    - Transportation
+    - Energy
+    - Entertainment
+    - Hospitality
+    - Agriculture
+    - Construction
+    - Legal
+    - Marketing
+    - Non-Profit
+    - Pharmaceuticals

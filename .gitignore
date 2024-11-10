@@ -1,0 +1,7 @@
+venv/
+
+rasa/.rasa/
+
+rasa/models/
+
+rasa/tests/

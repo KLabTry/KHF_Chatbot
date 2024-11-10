@@ -1,0 +1,48 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Activate job inquiry form and fetch job listings
+  steps:
+  - intent: ask_job
+  - action: job_inquiry_form
+  - active_loop: job_inquiry_form
+
+- rule: Submit job inquiry form and fetch job listings
+  condition:
+  - active_loop: job_inquiry_form
+  steps:
+  - action: job_inquiry_form
+  - active_loop: null
+  - action: action_fetch_job_listings
+
+- rule: Activate currency exchange form
+  steps:
+  - intent: currency_exchange
+  - action: currency_exchange_form
+  - active_loop: currency_exchange_form
+
+- rule: Submit currency exchange form
+  condition:
+  - active_loop: currency_exchange_form
+  steps:
+  - action: currency_exchange_form
+  - active_loop: null
+  - action: action_currency_exchange
+
+- rule: Acknowledge user's name
+  steps:
+    - intent: provide_name
+    - slot_was_set:
+        - user_name
+    - action: utter_acknowledge_name
+
+- rule: Respond to thanks
+  steps:
+    - intent: thanks
+    - action: utter_thanks

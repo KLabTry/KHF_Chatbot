@@ -1,0 +1,90 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ask_job
+  - currency_exchange
+  - provide_name
+  - thanks
+
+entities:
+  - job_title
+  - industry
+  - target_currency
+  - amount
+  - user_name
+
+slots:
+  job_title:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: job_title
+  industry:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: industry
+  target_currency:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: target_currency
+  amount:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: amount
+  user_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: user_name
+
+forms:
+  job_inquiry_form:
+    required_slots:
+      - job_title
+      - industry
+  currency_exchange_form:
+    required_slots:
+      - target_currency
+      - amount
+
+actions:
+  - action_fetch_job_listings
+  - action_currency_exchange
+
+responses:
+  utter_greet:
+    - text: "Hello! Welcome there. May I know your name?"
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_ask_job:
+    - text: "Here is a job for you:"
+
+  utter_ask_job_title:
+    - text: "What job title are you interested in?"
+
+  utter_ask_industry:
+    - text: "Which industry are you targeting?"
+
+  utter_ask_target_currency:
+    - text: "Please specify the currency you want to exchange to (e.g., USD, GBP)."
+
+  utter_ask_amount:
+    - text: "How much EUR would you like to exchange?"
+
+  utter_acknowledge_name:
+    - text: "Nice to meet you, {user_name}! \nI can assist you with job searches and help you exchange euros to other currencies."
+  
+  utter_thanks:
+    - text: "You're welcome! If you have any other questions, feel free to ask."
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
