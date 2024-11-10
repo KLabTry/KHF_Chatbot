@@ -25,6 +25,9 @@ To interact with the chatbot, run the Rasa shell while inside the `rasa` directo
 rasa shell
 ```
 
+Note: to stop the conversation at any time use `/stop` command in the chat
+
+
 ### 4. Run Rasa Actions
 In a separate terminal, start the Rasa actions server at port 5056:
 
